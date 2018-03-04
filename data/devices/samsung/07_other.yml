@@ -411,3 +411,46 @@
     brightness_path: /sys/class/backlight/panel/brightness
     default_brightness: 255
     theme: portrait_hdpi
+
+- name: Samsung Galaxy Grand (Exynos)
+  id: baffinlteskt
+  codenames:
+    - baffinlteskt
+    - baffinltektt
+  architecture: armeabi-v7a
+
+  block_devs:
+    base_dirs:
+      - /dev/block/platform/dw_mmc/by-name
+    system:
+      - /dev/block/platform/dw_mmc/by-name/system
+      - /dev/block/platform/dw_mmc/by-num/p9
+      - /dev/block/mmcblk0p9
+    cache:
+      - /dev/block/platform/dw_mmc/by-name/cache
+      - //dev/block/platform/dw_mmc/by-num/p8
+      - /dev/block/mmcblk0p8
+    data:
+      - /dev/block/platform/dw_mmc/by-name/userdata
+      - /dev/block/platform/dw_mmc/by-num/p12
+      - /dev/block/mmcblk0p12
+    boot:
+      - /dev/block/platform/dw_mmc/by-name/boot
+      - /dev/block/platform/dw_mmc/by-num/p5
+      - /dev/block/mmcblk0p5
+    recovery:
+      - /dev/block/platform/dw_mmc/by-name/recovery
+      - /dev/block/platform/dw_mmc/by-num/p6
+      - /dev/block/mmcblk0p6
+
+  boot_ui:
+    supported: true
+    graphics_backends:
+      - fbdev
+    flags:
+      - TW_QCOM_RTC_FIX
+    pixel_format: RGBX_8888
+    brightness_path: /sys/class/leds/mmc1::/brightness
+    max_brightness: 255
+    default_brightness: 0
+    theme: portrait_hdpi
